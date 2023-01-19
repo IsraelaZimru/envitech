@@ -23,3 +23,19 @@ h2 {
   position: absolute;
   right: 7%;
 }
+
+/* laptop/ ipad */
+@media screen and (max-width: 1200px) and (min-width: 600px) {
+  #card {
+    width: 60%;
+    font-size: small;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 600px) {
+  #card {
+    padding: 20px 30px;
+    width: 80%;
+  }
+}
