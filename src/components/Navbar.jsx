@@ -9,12 +9,15 @@ export default function Navbar({ data, handleSelect }) {
         data.MonitorType.map((item, i) => {
           const MonitorTypeId = item.Id;
           return (
-            <NavDropdown title={item.Name}>
+            <NavDropdown key={i} title={item.Name}>
               {data.Monitor.filter(
                 (x) => x.MonitorTypeId === MonitorTypeId
-              ).map((link, i) => (
-                <NavDropdown.Item onClick={() => handleSelect(item.LegendId)}>
-                  {link.Name}
+              ).map((monitor, i) => (
+                <NavDropdown.Item
+                  key={i}
+                  onClick={() => handleSelect(monitor, item.LegendId)}
+                >
+                  {monitor.Name}
                 </NavDropdown.Item>
               ))}
             </NavDropdown>

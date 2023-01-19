@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function LegendCard({ data, closeLegend }) {
+export default function LegendCard({ data: { legend, monitor }, closeLegend }) {
   return (
     <div
       style={{
@@ -25,7 +25,9 @@ export default function LegendCard({ data, closeLegend }) {
         >
           X
         </p>
-        {data.tags.map((tag) => (
+
+        <h2 style={{ paddingLeft: "14%" }}>{monitor.Name}</h2>
+        {legend.tags.map((tag) => (
           <p>
             <span
               style={{
