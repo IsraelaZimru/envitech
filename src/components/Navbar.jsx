@@ -1,23 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import "../css/navbar.css";
 
-export default function Navbar({ data, handleSelect }) {
+export default function Navbar({ data, handleSelect, selectedNavItemId }) {
+  const [selected, setSelected] = useState(undefined);
+  const [show, setShow] = useState(true);
+
   return (
-    <Nav fill variant="tabs">
+    <Nav fill className="header">
       {!!data &&
         data.MonitorType.map((item, i) => {
           const monitors = data.Monitor.filter(
             (monitor) => monitor.MonitorTypeId === item.Id
           );
           return (
-            <NavDropdown key={i} title={item.Name}>
-              {monitors.map((selected, i) => (
+            <NavDropdown
+              className={`costomDropDown ${
+                selectedNavItemId === item.Id ? "white_bkgd" : "blue_bkgd"
+              }`}
+              drop="down-centered"
+              key={i}
+              title={item.Name}
+            >
+              {monitors.map((x, j) => (
                 <NavDropdown.Item
-                  key={i}
-                  onClick={() => handleSelect(selected, item.LegendId)}
+                  className="nav_item"
+                  key={j}
+                  onClick={() => handleSelect(x, item)}
                 >
-                  {selected.Name}
+                  {x.Name}
                 </NavDropdown.Item>
               ))}
             </NavDropdown>

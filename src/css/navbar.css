@@ -1,0 +1,26 @@
+.header {
+  font-size: larger;
+  border-bottom: 4px black solid;
+}
+
+.costomDropDown {
+  padding: 20px 50px;
+  border: 1px white solid;
+}
+
+.blue_bkgd {
+  background-color: rgb(0, 0, 135);
+}
+
+/* // direct child */
+.blue_bkgd > a:first-child { 
+  color: white;
+}
+
+.white_bkgd,
+.nav_item,
+.white_bkgd a,
+.white_bkgd a:hover {
+  background-color: white;
+  color: black;
+}

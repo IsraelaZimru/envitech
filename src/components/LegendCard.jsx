@@ -1,6 +1,9 @@
 import React from "react";
 
-export default function LegendCard({ data: { legend, monitor }, closeLegend }) {
+export default function LegendCard({
+  data: { legend, monitor, MonitorType },
+  closeLegend,
+}) {
   return (
     <div
       style={{

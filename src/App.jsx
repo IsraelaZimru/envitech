@@ -8,12 +8,12 @@ function App() {
   const [selectedLegend, setSelectedLegend] = useState({
     monitor: null,
     legend: null,
+    MonitorType: null,
   });
 
-  const handleSelect = (monitor, MonitorTypeId) => {
-    const legend = PageData.Legends.find((x) => x.Id === MonitorTypeId);
-    // console.log("legend", legend);
-    setSelectedLegend({ legend, monitor });
+  const handleSelect = (monitor, MonitorType) => {
+    const legend = PageData.Legends.find((x) => x.Id === MonitorType.LegendId);
+    setSelectedLegend({ legend, monitor, MonitorType });
     setShow(true);
   };
 
@@ -21,7 +21,11 @@ function App() {
 
   return (
     <>
-      <Navbar data={PageData} handleSelect={handleSelect} />
+      <Navbar
+        data={PageData}
+        handleSelect={handleSelect}
+        selectedNavItemId={selectedLegend?.MonitorType?.Id}
+      />
       {show && <LegendCard data={selectedLegend} closeLegend={closeLegend} />}
     </>
   );
