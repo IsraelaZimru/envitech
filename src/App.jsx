@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
 import PageData from "../src/data/Legends.json";
 import LegendCard from "./components/LegendCard";
+import Navbar from "./components/Navbar";
 import "./App.css";
 
 function App() {
@@ -18,24 +18,8 @@ function App() {
 
   const closeLegend = () => setShow(false);
   return (
-    <div className="App">
-      <Nav fill variant="tabs">
-        {!!PageData &&
-          PageData.MonitorType.map((item, i) => {
-            const MonitorTypeId = item.Id;
-            return (
-              <NavDropdown title={item.Name}>
-                {PageData.Monitor.filter(
-                  (x) => x.MonitorTypeId === MonitorTypeId
-                ).map((link, i) => (
-                  <NavDropdown.Item onClick={() => handleSelect(item.LegendId)}>
-                    {link.Name}
-                  </NavDropdown.Item>
-                ))}
-              </NavDropdown>
-            );
-          })}
-      </Nav>
+    <div>
+      <Navbar data={PageData} handleSelect={handleSelect}/>
       {show && <LegendCard data={selectedLegend} closeLegend={closeLegend} />}
     </div>
   );
