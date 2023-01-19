@@ -7,17 +7,17 @@ export default function Navbar({ data, handleSelect }) {
     <Nav fill variant="tabs">
       {!!data &&
         data.MonitorType.map((item, i) => {
-          const MonitorTypeId = item.Id;
+          const monitors = data.Monitor.filter(
+            (monitor) => monitor.MonitorTypeId === item.Id
+          );
           return (
             <NavDropdown key={i} title={item.Name}>
-              {data.Monitor.filter(
-                (x) => x.MonitorTypeId === MonitorTypeId
-              ).map((monitor, i) => (
+              {monitors.map((selected, i) => (
                 <NavDropdown.Item
                   key={i}
-                  onClick={() => handleSelect(monitor, item.LegendId)}
+                  onClick={() => handleSelect(selected, item.LegendId)}
                 >
-                  {monitor.Name}
+                  {selected.Name}
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
