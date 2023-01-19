@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../css/navbar.css";
 
 export default function MyNavbar({ data, handleSelect, selectedNavItemId }) {
-  const [selected, setSelected] = useState(undefined);
-  const [show, setShow] = useState(true);
-
   return (
     <Nav fill className="header">
       {!!data &&
