@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../css/navbar.css";
 
-export default function Navbar({ data, handleSelect, selectedNavItemId }) {
+export default function MyNavbar({ data, handleSelect, selectedNavItemId }) {
   const [selected, setSelected] = useState(undefined);
   const [show, setShow] = useState(true);
 

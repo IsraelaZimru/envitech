@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PageData from "../src/data/Legends.json";
 import LegendCard from "./components/LegendCard";
-import Navbar from "./components/Navbar";
+import MyNavbar from "./components/MyNavbar";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <Navbar
+      <MyNavbar
         data={PageData}
         handleSelect={handleSelect}
         selectedNavItemId={selectedLegend?.MonitorType?.Id}
