@@ -17,7 +17,10 @@ function App() {
     setShow(true);
   };
 
-  const closeLegend = () => setShow(false);
+  const closeLegend = () => {
+    setShow(false);
+    setSelectedLegend({});
+  };
 
   return (
     <>

@@ -1,35 +1,24 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
+import "../css/legend.css";
 
 export default function LegendCard({
   data: { legend, monitor, MonitorType },
   closeLegend,
 }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        style={{
-          border: " 2px black solid",
-          textAlign: "left",
-          marginTop: "100px",
-          padding: "20px 60px",
-          alignSelf: "center",
-          width: "40%",
-        }}
-      >
+    <div id="container">
+      <div id="card">
         {/* CLOSE BUTTON */}
-        <p
-          style={{ textAlign: "right", fontWeight: "bolder" }}
+        <Button
+          variant="outline-danger"
+          className="closeBtn"
           onClick={closeLegend}
         >
           X
-        </p>
+        </Button>
 
-        <h2 style={{ paddingLeft: "14%" }}>{monitor.Name}</h2>
+        <h2>{monitor.Name}</h2>
         {legend.tags.map((tag) => (
           <p>
             <span

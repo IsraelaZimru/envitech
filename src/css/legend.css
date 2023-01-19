@@ -1,0 +1,25 @@
+h2 {
+  padding-left: 14%;
+}
+
+#container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+#card {
+  position: relative;
+  border: 2px black solid;
+  text-align: left;
+  margin-top: 50px;
+  padding: 20px 60px;
+  align-self: center;
+  width: 40%;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 7%;
+}
